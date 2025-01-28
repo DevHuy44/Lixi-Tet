@@ -350,6 +350,7 @@ h1 {
 .answer {
   padding: 5px 10px;
   font-family: "Lobster", sans-serif;
+  font-size: 1.2rem;
   background-color: #ffcc66;
   border: 2px solid #ff7f50;
   border-radius: 10px;
