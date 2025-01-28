@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const colors = ["red", "gold"]; // Màu sắc
 
   // Tạo emoji ngẫu nhiên trên màn hình
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 50; i++) {
     const icon = document.createElement("span");
     icon.textContent = emojis[Math.floor(Math.random() * emojis.length)];
     icon.classList.add("icon"); // Thêm lớp cho icon để áp dụng CSS
@@ -129,7 +129,7 @@ function openLuckyMoney() {
   // Hiển thị số tiền
   document.getElementById(
     "money-amount"
-  ).textContent = `Huy lì xì ${randomAmount}k nè! Ăn tết vui vẻ nhe🥰`;
+  ).textContent = `🎉Huy lì xì ${randomAmount}k nè! Năm mới chúc bạn mình thật nhiều sức khỏe💪, nhiều may mắn☘️, và luôn thành công trên con đường mình lựa chọn🫰`;
   document.getElementById("money-amount").style.display = "block";
   se("hasPlayed", true, 7);
 }
@@ -178,6 +178,26 @@ const questions = [
     options: ["Trịnh Trần Phương Tuấn", "Jack", "MeoMeo", "J97"],
     correctAnswer: "Jack",
   },
+  {
+    question: "Muốn nhận lì xì không?",
+    options: ["Có", "Không", "Có Cái Nịt", "Kó"],
+    correctAnswer: "Có",
+  },
+  {
+    question: "Muốn chúc Huy điều gì nè?",
+    options: ["Khỏe mạnh", "Mùng 1 đại thắng🤣", "Nhiều may mắn", "Tất cả"],
+    correctAnswer: "Tất cả",
+  },
+  {
+    question: "Năm 2025 là tết con gì?",
+    options: ["Thìn", "Tỵ", "Tị", "Tý"],
+    correctAnswer: "Tỵ",
+  },
+  {
+    question: "Tết 2025 có tên là gì?",
+    options: ["Ất Tị", "Át Tỵ", "Ất Tỵ", "Ấc Tỵ"],
+    correctAnswer: "Ất Tỵ",
+  },
 ];
 
 // Hàm để trộn ngẫu nhiên các phần tử trong mảng
@@ -191,7 +211,7 @@ function shuffleArray(arr) {
 // Tạo mảng câu hỏi ngẫu nhiên (chỉ lấy 3 câu)
 function getRandomQuestions() {
   shuffleArray(questions); // Trộn ngẫu nhiên mảng questions
-  return questions.slice(0, 3); // Lấy 3 câu hỏi đầu tiên
+  return questions.slice(0, 5);
 }
 
 // Lấy mảng câu hỏi ngẫu nhiên
@@ -207,7 +227,8 @@ const answersElement = document.getElementById("answers");
 // Hiển thị câu hỏi và các lựa chọn
 function showQuestion() {
   const currentQuestion = randomQuestions[currentQuestionIndex];
-  questionElement.textContent = currentQuestion.question;
+  questionElement.textContent =
+    currentQuestionIndex + 1 + ". " + currentQuestion.question;
 
   // Xóa các câu trả lời trước đó
   answersElement.innerHTML = "";

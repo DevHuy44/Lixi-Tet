@@ -304,53 +304,88 @@ h1 {
   letter-spacing: 1.5px;
 } */
 
+/* Hiệu ứng xuất hiện từ từ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .question {
-  color: #ffdf00; /* Màu vàng tượng trưng cho tài lộc */
-  font-size: 1.4rem; /* Kích thước chữ lớn hơn để nổi bật */
-  font-family: "Lobster", sans-serif; /* Font chữ mang cảm giác nhẹ nhàng, phóng khoáng */
-  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5); /* Bóng chữ màu đỏ nhấn mạnh */
+  color: #ffdf00;
+  font-size: 1.4rem;
+  font-family: "Lobster", sans-serif;
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5);
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
   letter-spacing: 2px;
-  border-bottom: 3px dashed #ff0000; /* Đường viền tạo cảm giác Tết truyền thống */
+  border-bottom: 3px dashed #ff0000;
   padding-bottom: 10px;
+  opacity: 0; /* Ẩn ban đầu */
+  animation: fadeIn 4s ease forwards; /* Hiệu ứng xuất hiện */
 }
 
 .answers {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Khoảng cách giữa các đáp án */
-  max-width: 300px; /* Giới hạn chiều rộng hợp lý */
-  margin: 0 auto; /* Căn giữa box */
+  gap: 15px;
+  max-width: 300px;
+  margin: 0 auto;
   padding: 10px;
-  background-color: #ffe4b5; /* Màu nền nhạt tạo sự ấm cúng */
+  background-color: #ffe4b5;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Hiệu ứng đổ bóng để nổi bật box */
-  border: 3px solid #ff4500; /* Đường viền màu đỏ cam */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 3px solid #ff4500;
+  opacity: 0; /* Ẩn ban đầu */
+  animation: fadeIn 0.8s ease forwards; /* Hiệu ứng xuất hiện */
+  animation-delay: 0.5s; /* Xuất hiện sau .question */
 }
 
 .answer {
   padding: 5px 10px;
   font-family: "Lobster", sans-serif;
-  background-color: #ffcc66; /* Màu vàng nhạt nổi bật */
-  border: 2px solid #ff7f50; /* Đường viền đỏ cam tạo cảm giác Tết */
+  background-color: #ffcc66;
+  border: 2px solid #ff7f50;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s;
-  text-align: center; /* Căn giữa text */
-  color: #8b0000; /* Màu chữ đỏ đậm */
+  text-align: center;
+  color: #8b0000;
+  opacity: 0; /* Ẩn ban đầu */
+  animation: fadeIn 2.5s ease forwards; /* Hiệu ứng xuất hiện */
+}
+
+.answer:nth-child(1) {
+  animation-delay: 1s;
+}
+
+.answer:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+.answer:nth-child(3) {
+  animation-delay: 1.4s;
+}
+
+.answer:nth-child(4) {
+  animation-delay: 1.6s;
 }
 
 .answer:hover {
-  background-color: #ffb347; /* Màu cam nhạt khi hover */
-  transform: scale(1.05); /* Hiệu ứng phóng to nhẹ */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng khi hover */
+  background-color: #ffb347;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .answer:active {
-  background-color: #ff9966; /* Màu khi nhấn */
-  transform: scale(0.95); /* Thu nhỏ lại khi nhấn */
+  background-color: #ff9966;
+  transform: scale(0.95);
 }
 
 .hidden {
