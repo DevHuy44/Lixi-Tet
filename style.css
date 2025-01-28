@@ -1,0 +1,358 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(-180deg, #b91c1c, #e8550c);
+  text-align: center;
+  position: relative;
+}
+
+/* Đặt kiểu chữ cho câu chúc */
+h1 {
+  margin: 10px auto;
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  color: #ffdf00;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  margin-top: 80px;
+}
+
+/* Hiệu ứng mờ dần vào */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hiệu ứng biến dạng chữ khi thay đổi */
+@keyframes distort {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Hiệu ứng cho từ */
+.word {
+  display: inline-block;
+  animation: appear 1s forwards, distort 1s forwards;
+  opacity: 0;
+  margin-right: 0.5rem; /* Tạo khoảng cách giữa các từ */
+}
+
+/* Hiệu ứng từ xuất hiện từng cái */
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.red-envelope {
+  margin: 0 auto;
+  width: 130px; /* Tăng chiều rộng của phong bao */
+  height: 200px; /* Tăng chiều cao của phong bao */
+  background: #ff4d4d; /* Màu đỏ truyền thống của bao lì xì */
+  border-radius: 15px; /* Bo góc để bao lì xì trông mềm mại hơn */
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3); /* Hiệu ứng bóng mờ nhẹ */
+  overflow: hidden; /* Ẩn phần thừa ra ngoài */
+  transition: transform 0.3s ease-in-out; /* Thêm hiệu ứng khi người dùng hover */
+}
+
+.red-envelope p {
+  color: #ffdf00 !important; /* Màu vàng tượng trưng cho tài lộc và may mắn */
+  font-size: 1.4rem; /* Cải thiện kích thước chữ */
+  font-family: "Lobster", sans-serif; /* Font chữ mang cảm giác nhẹ nhàng, phóng khoáng, dễ đọc */
+  font-weight: bold; /* Làm chữ đậm hơn để nổi bật */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Thêm hiệu ứng bóng cho chữ */
+  margin-top: 120px; /* Đẩy chữ xuống vị trí hợp lý */
+  text-align: center; /* Căn giữa chữ */
+  letter-spacing: 1.5px; /* Tăng khoảng cách giữa các chữ để dễ nhìn và thoải mái hơn */
+}
+
+/* Khi hover vào bao lì xì, phong bao sẽ "lật" ra một chút */
+.red-envelope:hover {
+  transform: scale(1.05);
+  background: rgb(248, 29, 29);
+}
+
+.red-envelope .ribbon {
+  width: 80px; /* Cải thiện kích thước ribbon */
+  height: 15px; /* Chiều cao của ribbon */
+  background: gold; /* Màu vàng để nổi bật */
+  border-radius: 10px; /* Bo góc cho ribbon */
+  position: absolute;
+  top: 20px; /* Đặt ribbon gần đỉnh bao lì xì */
+}
+
+/* Emoji trên phong bao */
+.red-envelope .emoji {
+  font-size: 3rem; /* Tăng kích thước emoji */
+  position: absolute;
+  top: 40px; /* Đặt emoji vào giữa phong bao */
+  color: white;
+  z-index: 10;
+}
+
+/* Viết chữ bên dưới emoji */
+.red-envelope p {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 100px; /* Đẩy chữ xuống dưới */
+}
+
+/* Tiền thưởng khi người dùng nhấp vào */
+.money-display {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#money-amount {
+  font-size: 2rem;
+  font-family: "Dancing Script", cursive;
+  color: #ffdf00;
+  font-weight: bold;
+  display: none;
+  animation: bounce 0.5s ease-in-out infinite alternate;
+}
+
+/* Hiệu ứng nhảy tiền */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.audio-control {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  cursor: pointer;
+}
+
+.audio-control i {
+  font-size: 1.5rem;
+  color: #ff5733;
+}
+
+.icon {
+  position: absolute;
+  display: inline-block; /* Đảm bảo emoji có thể nhận các hiệu ứng */
+  font-size: 3rem; /* Điều chỉnh kích thước emoji theo nhu cầu */
+  animation: blink 1s infinite alternate, float 5s linear infinite;
+}
+
+.fireworks-icon {
+  animation: blink 1s infinite alternate, float 5s linear infinite,
+    zoom 3s infinite alternate;
+}
+
+/* Hiệu ứng phóng to và thu nhỏ (zoom) */
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5); /* Phóng to */
+  }
+  100% {
+    transform: scale(1); /* Thu nhỏ */
+  }
+}
+
+/* Hiệu ứng nhấp nháy */
+@keyframes blink {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hiệu ứng di chuyển nhẹ */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .red-envelope {
+    width: 100px;
+    height: 150px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  #money-amount {
+    font-size: 1.5rem;
+  }
+}
+
+.happy {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: url("assets/happy.webp") no-repeat center;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+}
+
+.fireworks-left {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  background: url("assets/fireworks.gif") no-repeat center;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+  animation: explode 1s ease-out;
+}
+.fireworks-right {
+  position: absolute;
+  top: 20%;
+  left: 80%;
+  width: 200px;
+  height: 200px;
+  background: url("assets/fireworks.gif") no-repeat center;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+  animation: explode 1s ease-out;
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* .question {
+  color: #ffdf00 !important; 
+  font-size: 1.4rem;
+  font-family: "Lobster", sans-serif; 
+
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center; 
+  letter-spacing: 1.5px;
+} */
+
+.question {
+  color: #ffdf00; /* Màu vàng tượng trưng cho tài lộc */
+  font-size: 1.4rem; /* Kích thước chữ lớn hơn để nổi bật */
+  font-family: "Lobster", sans-serif; /* Font chữ mang cảm giác nhẹ nhàng, phóng khoáng */
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5); /* Bóng chữ màu đỏ nhấn mạnh */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  letter-spacing: 2px;
+  border-bottom: 3px dashed #ff0000; /* Đường viền tạo cảm giác Tết truyền thống */
+  padding-bottom: 10px;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Khoảng cách giữa các đáp án */
+  max-width: 300px; /* Giới hạn chiều rộng hợp lý */
+  margin: 0 auto; /* Căn giữa box */
+  padding: 10px;
+  background-color: #ffe4b5; /* Màu nền nhạt tạo sự ấm cúng */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Hiệu ứng đổ bóng để nổi bật box */
+  border: 3px solid #ff4500; /* Đường viền màu đỏ cam */
+}
+
+.answer {
+  padding: 5px 10px;
+  font-family: "Lobster", sans-serif;
+  background-color: #ffcc66; /* Màu vàng nhạt nổi bật */
+  border: 2px solid #ff7f50; /* Đường viền đỏ cam tạo cảm giác Tết */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center; /* Căn giữa text */
+  color: #8b0000; /* Màu chữ đỏ đậm */
+}
+
+.answer:hover {
+  background-color: #ffb347; /* Màu cam nhạt khi hover */
+  transform: scale(1.05); /* Hiệu ứng phóng to nhẹ */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng khi hover */
+}
+
+.answer:active {
+  background-color: #ff9966; /* Màu khi nhấn */
+  transform: scale(0.95); /* Thu nhỏ lại khi nhấn */
+}
+
+.hidden {
+  display: none;
+}
