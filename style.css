@@ -128,7 +128,7 @@ h1 {
 /* Viết chữ bên dưới emoji */
 .red-envelope p {
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: bold;
   margin-top: 100px; /* Đẩy chữ xuống dưới */
 }
