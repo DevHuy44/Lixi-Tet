@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const colors = ["red", "gold"]; // Màu sắc
 
   // Tạo emoji ngẫu nhiên trên màn hình
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 30; i++) {
     const icon = document.createElement("span");
     icon.textContent = emojis[Math.floor(Math.random() * emojis.length)];
     icon.classList.add("icon"); // Thêm lớp cho icon để áp dụng CSS
@@ -108,12 +108,13 @@ function setCookie(name, value, days) {
 
 function deleteCookie() {
   // Thiết lập thời gian hết hạn của cookie về thời gian trong quá khứ (ngày 1 tháng 1 năm 1970)
-  setCookie(hasPlayed, "", -1);
+
+  setCookie("hasPlayed", false, -1);
 }
 
 function getCookie(name) {
   const cookies = document.cookie.split("; ");
-  console.log(cookies);
+
   for (let cookie of cookies) {
     const [key, value] = cookie.split("=");
     if (key === name) return value;
