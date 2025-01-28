@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const colors = ["red", "gold"]; // Màu sắc
 
   // Tạo emoji ngẫu nhiên trên màn hình
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 40; i++) {
     const icon = document.createElement("span");
     icon.textContent = emojis[Math.floor(Math.random() * emojis.length)];
     icon.classList.add("icon"); // Thêm lớp cho icon để áp dụng CSS
@@ -100,16 +100,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-function setCookie(name, value, days) {
+function se(a, b, c) {
   const date = new Date();
-  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+  date.setTime(date.getTime() + c * 24 * 60 * 60 * 1000);
+  document.cookie = `${a}=${b};expires=${date.toUTCString()};path=/`;
 }
 
-function deleteCookie() {
-  // Thiết lập thời gian hết hạn của cookie về thời gian trong quá khứ (ngày 1 tháng 1 năm 1970)
-
-  setCookie("hasPlayed", false, -1);
+function de() {
+  se("hasPlayed", false, -1);
 }
 
 function getCookie(name) {
@@ -124,7 +122,7 @@ function getCookie(name) {
 
 function openLuckyMoney() {
   // Tạo số tiền ngẫu nhiên
-  const moneyAmounts = [10, 10, 20, 20, 20, 20, 20, 20, 50];
+  const moneyAmounts = [10, 10, 20, 20, 20, 20, 20, 20, 20, 50];
   const randomAmount =
     moneyAmounts[Math.floor(Math.random() * moneyAmounts.length)];
 
@@ -133,17 +131,13 @@ function openLuckyMoney() {
     "money-amount"
   ).textContent = `Huy lì xì ${randomAmount}k nè! Ăn tết vui vẻ nhe🥰`;
   document.getElementById("money-amount").style.display = "block";
-
-  // Lưu trạng thái đã chơi vào cookie
-  setCookie("hasPlayed", true, 7); // Cookie hết hạn sau 7 ngày
+  se("hasPlayed", true, 7);
 }
 
 function startGame() {
-  // Hiển thị câu hỏi đầu tiên
   audio.play();
   audioIcon.classList.remove("fa-volume-mute");
   audioIcon.classList.add("fa-volume-up");
-  // Kiểm tra trạng thái trong cookie
   if (getCookie("hasPlayed")) {
     alert("Bạn chỉ được chơi 1 lần thôi! Chúc bạn năm mới may mắn!");
     return;
@@ -176,12 +170,12 @@ const questions = [
   },
   {
     question: "Cụm từ 'Khó chệu vô cùng' thể hiện cảm xúc nào?",
-    options: ["Khó chịu", "Vui vẻ", "Ngạc nhiên", "Buồn bã"],
+    options: ["Vui vẻ", "Ngạc nhiên", "Khó chịu", "Buồn bã"],
     correctAnswer: "Khó chịu",
   },
   {
     question: "Như 1 vì tinh tú ... lấp lánh trên bầu trời rộng lớn",
-    options: ["Jack", "Trịnh Trần Phương Tuấn", "MeoMeo", "J97"],
+    options: ["Trịnh Trần Phương Tuấn", "Jack", "MeoMeo", "J97"],
     correctAnswer: "Jack",
   },
 ];
