@@ -129,7 +129,7 @@ function openLuckyMoney() {
   document.getElementById("money-amount").style.display = "block";
 
   // Lưu trạng thái đã chơi vào cookie
-  setCookie("hasPlayed", true, 7); // Cookie hết hạn sau 7 ngày
+  //setCookie("hasPlayed", true, 7); // Cookie hết hạn sau 7 ngày
 }
 
 function startGame() {
