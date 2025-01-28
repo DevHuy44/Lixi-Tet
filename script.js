@@ -106,6 +106,11 @@ function setCookie(name, value, days) {
   document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
 }
 
+function deleteCookie() {
+  // Thiết lập thời gian hết hạn của cookie về thời gian trong quá khứ (ngày 1 tháng 1 năm 1970)
+  setCookie(hasPlayed, "", -1);
+}
+
 function getCookie(name) {
   const cookies = document.cookie.split("; ");
   console.log(cookies);
